@@ -1,0 +1,27 @@
+# ========================
+# BACKEND (Flask / Python)
+# ========================
+venv/
+__pycache__/
+*.pyc
+instance/
+.env
+*.env
+
+# ========================
+# FRONTEND (React / Node)
+# ========================
+node_modules/
+build/
+dist/
+.npm/
+.cache/
+
+# ========================
+# System / IDE junk
+# ========================
+.DS_Store
+*.log
+.idea/
+.vscode/
+*.sqlite3

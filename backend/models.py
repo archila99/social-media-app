@@ -18,7 +18,7 @@ class User(db.Model):
     # unique email
     email = db.Column(db.String(120), nullable=False, unique=True)
     # hashed password never stores plain text
-    password_hash = db.Column(db.String(128), nullable=False, unique=True)
+    password_hash = db.Column(db.String(128), nullable=False)
 
     # hashes password before saving it 
     def set_password(self, password):
@@ -28,3 +28,15 @@ class User(db.Model):
     # verify hashed password
     def check_password(self, password):
         return bcrypt.check_password_hash(self.password_hash, password)
+
+
+class Post(db.Model):
+    __tablename__ = 'posts'
+
+    id= db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    content = db.Column(db.Text, nullable=False)
+    created_at = db.Column(db.DateTime, nullable=False, server_default=db.func.now())
+    
+    # relationship to User model
+    user = db.relationship('User', backref=db.backref('posts', lazy=True))

@@ -1,0 +1,11 @@
+/* src/index.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add any global resets or custom CSS below */
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
